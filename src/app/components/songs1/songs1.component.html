@@ -1,0 +1,104 @@
+<div class="row">
+    <div class="col-sm-10">Released before:<input type="date" [(ngModel)]="filterDate">&nbsp;
+      <button (click)="applyFilter(filterDate)" class="btn button-filter" mat-button>Filter</button>&nbsp;&nbsp;
+      <button (click)="cancelFilter()" class="btn button-filter" mat-button>Cancel</button>
+    </div>
+    <div class="col-sm-2">
+      <article class="table-header">
+        <button class="btn button-add-row" mat-button (click)="addRow()">Add New Song</button>
+      </article>
+    </div>
+  </div>
+
+  <div *ngIf="error===true" class='alert alert-danger'>Something is wrong. We are working on it...</div>
+  
+  <mat-form-field >
+    <mat-label>Regular input box:</mat-label><input matInput [ngModel]="materialInput"><br /><br />
+  </mat-form-field><br /><br />
+  <mat-form-field appearance="outline">
+    <mat-label>disabled input:</mat-label>
+    <input matInput [ngModel]="materialInput2" [disabled]="true">
+  </mat-form-field>
+  
+  <div class="table" id="song-table">
+    <div class='theader'>
+        <!--<th [appSort]="songs" data-order="desc" data-name="employeeId" scope="col">Employee Id</th>-->
+        <div class='table_header' [appSort]="songs" data-order="desc" data-name="title" scope="col">Title</div>
+        <div class='table_header' [appSort]="songs" data-order="desc" data-name="artist" scope="col">Artist</div>
+        <div class='table_header' [appSort]="songs" data-order="desc" data-name="releaseDay" scope="col">Release Date</div>
+        <div class='table_header' [appSort]="songs" data-order="desc" data-name="price" scope="col">Price</div>
+        <div class='table_header'></div>
+    </div>
+    <div class='table_row' *ngFor="let song of songs; let i = index;">
+        <div class='table_small'>
+            <div class='table_cell'>Title</div>
+            <div class='table_cell'>
+                <div
+            [ngStyle]="{'visibility': songs[i].isEdit === true ? 'visible' : 'hidden'}">
+            <form><input type="text" [(ngModel)]="songs[i].title" required id="title" name="title" class="form-control"
+                #title="ngModel"><div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+                <div *ngIf="title.errors?.['required']" class="alert alert-danger">
+                  Title is required.
+                </div></div></form>
+          </div>
+          <div
+            [ngStyle]="{'visibility': songs[i].isEdit !== true ? 'visible' : 'hidden'}">{{songs[i].title}}</div>
+        
+
+            </div>
+          </div>
+          <div class='table_small'>
+            <div class='table_cell'>Artist</div>
+            <div class='table_cell'><div [ngStyle]="{'visibility': songs[i].isEdit === true ? 'visible' : 'hidden'}">
+                <form>
+                  <input type="text" [(ngModel)]="songs[i].artist" required id="artist" name="artist" class="form-control"
+                    #artist="ngModel">
+                  <div *ngIf="artist.invalid && (artist.dirty || artist.touched)" class="alert ">
+                    <div *ngIf="artist.errors?.['required']" class="alert alert-danger">
+                      Artist is required.
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div [ngStyle]="{'visibility': songs[i].isEdit !== true ? 'visible' : 'hidden'}">{{songs[i].artist}}</div>
+            </div>
+          </div>
+          <div class='table_small'>
+            <div class='table_cell'>Release Date</div>
+            <div class='table_cell'><div [ngStyle]="{'visibility': songs[i].isEdit === true ? 'visible' : 'hidden'}"><input type="date"
+                [(ngModel)]="songs[i].releaseDay"></div>
+                <div [ngStyle]="{'visibility': songs[i].isEdit !== true ? 'visible' : 'hidden'}">{{songs[i].releaseDay |
+                  date:'MM/dd/yyyy'}}</div></div>
+          </div>
+          <div class='table_small'>
+            <div class='table_cell'>Price</div>
+            <div class='table_cell'>
+                <div [ngStyle]="{'visibility': songs[i].isEdit === true ? 'visible' : 'hidden'}">
+                    <form>
+                      <input type="text" [(ngModel)]="songs[i].price" pattern="^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$" id="price"
+                        name="price" class="form-control" #price="ngModel">
+                      <div *ngIf="price.invalid" class="alert">
+                        <div *ngIf="price.errors?.['pattern']" class="alert alert-danger">
+                          Price must be a number
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div [ngStyle]="{'visibility': songs[i].isEdit !== true ? 'visible' : 'hidden'}">{{songs[i].price}}</div>
+                
+            </div>
+          </div>
+          <div class='table_small'>
+            <div class='table_cell'></div>
+            <div class='table_cell'><div [ngStyle]="{'visibility': songs[i].isEdit === true ? 'visible' : 'hidden'}">
+                <button class="btn button-add-row" (click)="saveRow(songs[i])"
+                  *ngIf="title.valid && artist.valid && price.valid">Save</button>
+              </div>
+              <div [ngStyle]="{'visibility': songs[i].isEdit === false ? 'visible' : 'hidden'}" class="div-no-wap"><button
+                class="btn button-add-row" (click)="editRow(songs[i])">Edit</button><button class="btn button-add-row"
+                (click)="deleteRow(songs[i])">Delete</button></div></div>
+          </div>
+        </div>
+    </div>
+
+  
