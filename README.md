@@ -34,6 +34,7 @@ This project uses the following modules:
 * material @angular/material
 * fontawesome @fortawesome/angular-fontawesome
 * in memory web api server angular-in-memory-web-api
+* ng2-currency-mask
 
 ## Assumptions
 The project uses angular-in-memory-web-api which is a dummy api in memory. The data can't be saved.

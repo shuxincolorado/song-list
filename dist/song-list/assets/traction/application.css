@@ -3517,6 +3517,7 @@ textarea.form-control {
     input[type="datetime-local"].form-control,
     input[type="month"].form-control {
         line-height: 30px
+        /* syin value was 34 px before */
     }
 
     input[type="date"].input-sm,
