@@ -1,6 +1,6 @@
 # SongList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.7.
 
 # Overall Theme
 The theme from https://www.copera.org/ is used, and modified slightly to fit the overall theme of PERA site for testing purpose only .

@@ -20,6 +20,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { Songs1Component } from './components/songs1/songs1.component';
 import { Songs2Component } from './components/songs2/songs2.component';
+import { Songs3Component } from './components/songs3/songs3.component';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { Songs2Component } from './components/songs2/songs2.component';
     SortDirective,
     MessagesComponent,
     Songs1Component,
-    Songs2Component
+    Songs2Component,
+    Songs3Component
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { Songs2Component } from './components/songs2/songs2.component';
     MatInputModule,
     HttpClientModule,
     MaterialModule,
+    CurrencyMaskModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
