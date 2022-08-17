@@ -260,6 +260,8 @@ to represent the company, product, or service to which they refer.**
 angular-in-memory-web-api
 MIT
 
+ng2-currency-mask
+
 rxjs
 Apache-2.0
                                Apache License
