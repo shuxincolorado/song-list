@@ -1,6 +1,9 @@
 /* mat input testing */
 .mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
-    color: black
+    color: black;
+    -webkit-text-fill-color: black;
+    opacity: 1;
+    -webkit-opacity: 1;
 }
 
 ::ng-deep .disabled-box .mat-form-field-underline {
