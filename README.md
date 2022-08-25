@@ -12,6 +12,10 @@ The theme from https://www.copera.org/ is used, and modified slightly to fit the
 # Open the page via github pages
 https://shuxincolorado.github.io/song-list/dist/song-list/
 
+## Additional Features
+* PWA - You can download the site as an app, and run it offline
+* Push notification - push notice is sent every time "Save" button is pressed.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -31,10 +35,11 @@ Your can use your url to replace --base-href part.
 
 ## Dependencies
 This project uses the following modules:
-* material @angular/material
-* fontawesome @fortawesome/angular-fontawesome
-* in memory web api server angular-in-memory-web-api
+* @angular/material
+* @fortawesome/angular-fontawesome
+* angular-in-memory-web-api
 * ng2-currency-mask
+* angular/pwa
 
 ## Assumptions
 The project uses angular-in-memory-web-api which is a dummy api in memory. The data can't be saved.
